@@ -9,6 +9,8 @@ JAMK Full Stack -ohjelmointi 3.10.-20.11.2022
 - Express
 - MongoDB
 
+[![Azure Static Web Apps CI/CD](https://github.com/devharri-Learn/jamk-fullstack-ttc2080/actions/workflows/azure-static-web-apps-wonderful-meadow-0cab33503.yml/badge.svg?branch=main)](https://github.com/devharri-Learn/jamk-fullstack-ttc2080/actions/workflows/azure-static-web-apps-wonderful-meadow-0cab33503.yml)
+
 
 # Vanilla JavaScript App
 
