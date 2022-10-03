@@ -1,3 +1,15 @@
+# TTC2080-3008
+JAMK Full Stack -ohjelmointi 3.10.-20.11.2022
+
+- JavaScript-perusteet 1
+- JavaScript-perusteet 2
+- DOM
+- JSON, Promise ja Fetch-API
+- Node.js-käyttöönotto
+- Express
+- MongoDB
+
+
 # Vanilla JavaScript App
 
 [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build JavaScript apps in minutes. Use this repo with the [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to build and customize a new static site.
