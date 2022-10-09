@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tehtävä 4</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <p id="tulos">Katso konsoliin!</p>
+        
+        <script>
+
+            var numero1 = 1;
+            console.log(numero1);
+            var numero2 = 2;
+            console.log(numero2);
+            var numero3 = 3;
+            console.log(numero3);
+            
+            HighestNumber(numero1,numero2,numero3);
+
+            function HighestNumber(number1, number2, number3) {
+            var tulos = "Korkein numero on: " + Math.max(number1,number2,number3);
+            console.log(tulos);
+            }
+
+        </script>
+    </body>
+</html>
