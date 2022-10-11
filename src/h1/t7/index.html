@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tehtävä 6</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="row m-3">
+        <div class="col-6">
+            <form id="f">
+                <div class="mb-3">
+                    <label for="numero" class="form-label">Numero</label>
+                    <input type="text" class="form-control" id="numero" aria-describedby="numberhelp">
+                    <div id="numberhelp" class="form-text">Enter a number.</div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="CheckLeapYear(f.numero.value)">
+                    Tarkasta
+                </button>
+            </form>
+            <p class="my-3" id="tulos"></p>
+        </div>
+    </div>
+    <script>
+        function CheckLeapYear(year) {
+            var jako4 = year % 4;
+            var jako100 = year % 100;
+            var jako400 = year % 400;
+            if (jako4 == 0 && jako100 != 0) {
+                var tulos = "<h1>" + year + " is a leap year!" + "</h1>";
+                let para = document.getElementById("tulos");
+                para.innerHTML = tulos;
+                return true;
+            } else if (jako4 == 0 && jako100 == 0 && jako400 == 0) {
+                var tulos = "<h1>" + year + " is a leap year!" + "</h1>";
+                let para = document.getElementById("tulos");
+                para.innerHTML = tulos;
+                return true;
+            } else {
+                var tulos = "<h1>" + year + " is not a leap year!" + "</h1>";
+                let para = document.getElementById("tulos");
+                para.innerHTML = tulos;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
