@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tehtävä 5</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <p id="tulos">Katso konsoliin!</p>
+        
+        <script>
+            var taulukko = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            console.log("Alkuperäiset numerot: ")
+            for (let i = 0; i < taulukko.length; i++) {
+                console.log(taulukko[i])
+            }
+
+            var evens = GetEvens(taulukko);
+
+            console.log("Tasanumerot: ")
+            for (let i = 0; i < evens.length; i++) {
+                console.log(evens[i])
+                
+            }
+
+            function GetEvens(numbers) {
+                var evens = [];
+                for (let i = 0; i < numbers.length; i++) {
+                    if (numbers[i] % 2 == 0) {
+                        evens.push(numbers[i]);
+                    }
+            }
+            return evens;
+            }
+
+
+
+        </script>
+    </body>
+</html>
+
