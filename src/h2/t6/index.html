@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tehtävä 6</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container text-center"
+        style="width: 350px; background-color: rgb(175, 189, 215); margin-top: 4em; border-radius: 2%;">
+        <div class="row">
+            <div class="col m-3">
+                <h2>Vauhtilaskin</h2>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-4">
+                Tunnit:
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" id="HourInput">
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-4">
+                Minuutit:
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" id="MinuteInput">
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-4">
+                Sekunnit:
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" id="SecondInput">
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-4">
+                Kilometrit
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" id="KilometerInput">
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col mb-3">
+                <button type="button" class="btn btn-primary"
+                    onclick="laskeFunktio(HourInput.value, MinuteInput.value, SecondInput.value, KilometerInput.value)">Laske
+                    vauhdit</button>
+            </div>
+        </div>
+        <div style="text-align: start ;" id="speed"></div>
+        <div style="text-align: start ;" id="pace"></div>
+    </div>
+    <script>
+
+        class Vauhtilaskin {
+            constructor(tunti, minuutti, sekunti, kilometri) {
+                this.hour = tunti;
+                this.minute = minuutti;
+                this.second = sekunti;
+                this.km = kilometri;
+            }
+            // Getter
+            get kmhpace() {
+                return this.calcKmhPace();
+            }
+            // Getter
+            get minkmpace() {
+                return this.calcMinkmPace();
+            }
+
+            // Metodi
+            calcKmhPace() {
+                var tunnit = parseInt(this.hour) + (parseInt(this.minute) * 60 + parseInt(this.second)) / 3600;
+                var kmh = parseInt(this.km) / tunnit;
+                var tulos = `${kmh.toFixed(2)} km/h`;
+                return tulos;
+            }
+            // Metodi
+            calcMinkmPace() {
+                var sekunnit = parseInt(this.hour) * 60 * 60 + parseInt(this.minute) * 60 + parseInt(this.second);
+                var sekunnitPerKm = sekunnit / parseInt(this.km);
+                var minutes = 0;
+                while (sekunnitPerKm >= 60) {
+                    minutes++;
+                    sekunnitPerKm = sekunnitPerKm - 60;
+                }
+                sekunnitPerKm = Math.round(sekunnitPerKm);
+                sekunnitPerKm = String('0' + sekunnitPerKm).slice(-2);
+                var tulos = `${minutes}:${sekunnitPerKm}/km`;
+                return tulos;
+            }
+        }
+        function laskeFunktio(h, m, s, km) {
+
+            const laskin = new Vauhtilaskin(h, m, s, km);
+
+            var speed = laskin.kmhpace;
+            var tuloste1 = "<p>" + speed + "</p>";
+            let para1 = document.getElementById("speed");
+            para1.innerHTML = tuloste1;
+
+            var pace = laskin.minkmpace;
+            var tuloste2 = "<p>" + pace + "</p>";
+            let para2 = document.getElementById("pace");
+            para2.innerHTML = tuloste2;
+        }
+    </script>
+</body>
+
+</html>

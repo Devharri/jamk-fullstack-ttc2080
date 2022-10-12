@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tehtävä 4</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>OMG - Lady Gaga start singing!</div>
+    <div id="fw1"></div>
+    <div id="fw2"></div>
+    <div id="fw3"></div>
+    <div id="fw4"></div>
+    <div id="fw5"></div>
+    <div id="end"></div>
+
+    <script>
+
+        const printFw = (str, taskTime) => {
+            var tulos = "<h1>" + "NICE - fireworks!" + "</h1>";
+            let para = document.getElementById(str);
+            setTimeout(function () {
+                para.innerHTML = tulos
+            }, taskTime)
+        }
+
+        const execute = (str, taskTime, callback) => {
+            callback(str, taskTime)
+        }
+
+        execute('fw1', 5000, printFw)
+        execute('fw2', 10000, printFw)
+        execute('fw3', 15000, printFw)
+        execute('fw4', 20000, printFw)
+        execute('fw5', 25000, printFw)
+
+        var tulos = "<p>" + "WOW - It was the best concert in my life..." + "</p>";
+        let para = document.getElementById("end");
+        setTimeout(function () {
+            para.innerHTML = tulos
+        }, 30000)
+
+    </script>
+</body>
+
+</html>

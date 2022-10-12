@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tehtävä 5</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="m-5">
+        <div class="col-10">
+            <p>katso konsoliin!</p>
+        </div>
+    </div>
+
+    <script>
+
+        var matti = new Person("Matti", "12", "04012345");
+        console.log(matti.nimi);
+        console.log(matti.ika);
+        console.log(matti.puhelin);
+
+        matti.IncreaseAge();
+        console.log(matti.ika);
+
+        var teppo = new Person("Teppo", "22", "04012345");
+        console.log(teppo.nimi);
+        console.log(teppo.ika);
+        console.log(teppo.puhelin);
+
+        teppo.IncreaseAge();
+        console.log(teppo.ika);
+
+        var seppo = new Person("Seppo", "32", "04012345");
+        console.log(seppo.nimi);
+        console.log(seppo.ika);
+        console.log(seppo.puhelin);
+
+        seppo.IncreaseAge();
+        console.log(seppo.ika);
+
+        function Person(name, age, phone) {
+            this.nimi = name;
+            this.ika = Number(age);
+            this.puhelin = phone;
+
+            this.IncreaseAge = function () {
+                this.ika = this.ika + 1;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
