@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tehtävä 4</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container text-center"
+        style="width: 350px; background-color: rgb(175, 189, 215); margin-top: 3em; border-radius: 2%; box-shadow: 4px 4px 8px rgba(71, 71, 71, 0.24);">
+        <div class="row">
+            <div class="col m-3">
+                <h2>Simple to do list</h2>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-1">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="input" class="form-label">To do item:</label>
+                    <input type="text" class="form-control" id="input" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col">
+                <button id="myBtn" type="button" class="btn btn-primary" onclick="addItem(input.value)">Lisää</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary" onclick="deleteItems()">Tyhjennä lista</button>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-10 mb-3">
+                <ul style="text-align: start;" id="lista">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        //delete LI-item on click
+        function deleteClick(target) {
+            var list = document.getElementById("lista");
+            if (list.hasChildNodes()) {
+                list.removeChild(target);
+            }
+        }
+
+        //event listener for list item click
+        lista.addEventListener('click', (event) => deleteClick(event.target));
+
+        //add new to do list item
+        function addItem(item) {
+            let ulnode = document.getElementById("lista");
+            let linode = document.createElement('li');
+            let litext = document.createTextNode(item);
+            linode.appendChild(litext);
+            ulnode.appendChild(linode);
+        }
+
+        //delete all to do list items
+        function deleteItems() {
+            var list = document.getElementById("lista");
+            while (list.hasChildNodes()) {
+                list.removeChild(list.firstChild);
+            }
+        }
+
+        //Enter key press for new input
+        var input = document.getElementById("input");
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("myBtn").click();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
