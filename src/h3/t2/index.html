@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tehtävä 2</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container text-center"
+        style="width: 350px; background-color: rgb(175, 189, 215); margin-top: 4em; border-radius: 5px;">
+
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col mb-3">
+
+                <button id="btn">Tulosta tasoitukset</button>
+                <ul id="hcplist">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var hcpdata = [
+            { "name": "Ari", "hcp": 54 },
+            { "name": "Pasi", "hcp": 5 },
+            { "name": "Seppo", "hcp": 20 }
+        ];
+
+        btn.addEventListener("click", fn);
+
+        function fn(params) {
+            var ulnode = document.getElementById("hcplist");
+            //clear nodes
+            while (ulnode.hasChildNodes()) {
+                ulnode.removeChild(ulnode.firstChild);
+            }
+
+            //loop for new nodes
+            for (var key in hcpdata) {
+                if (Object.hasOwnProperty.call(hcpdata, key)) {
+                    var tulos = hcpdata[key]["name"] + " " + hcpdata[key]["hcp"];
+
+                    let linode = document.createElement('li');
+                    let litext = document.createTextNode(tulos);
+                    linode.appendChild(litext);
+                    ulnode.appendChild(linode);
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
