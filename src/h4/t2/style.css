@@ -1,0 +1,44 @@
+#houses {
+    width: 600px;
+    height: 800px;
+    overflow: auto;
+    margin: 10px;
+    text-align: start;
+  }
+
+  .houseContainer {
+    display: block;
+    border: 1px solid rgb(177, 177, 177);
+    width: 570px; 
+    height: 165px; 
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    margin: 2px;
+    padding: 2px;
+  }
+
+  .houseImage {
+    width: 225px; 
+    height: 160px; 
+    float: left;
+    margin: 2px;
+  }
+
+  p.header {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  p.text {
+    font-style: italic;
+    font-size: 10px;
+  }
+
+  p {
+margin-bottom: 6px;
+  }
+
+  form label {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+  }
