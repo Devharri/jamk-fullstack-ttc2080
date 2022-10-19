@@ -29,7 +29,7 @@ async function renderHouses() {
 
         let size = document.createElement('p');
         size.className = '';
-        size.innerHTML = house.size;
+        size.innerHTML = house.size + " m2";
 
         let text = document.createElement('p');
         text.className = 'text';
@@ -37,7 +37,7 @@ async function renderHouses() {
 
         let price = document.createElement('p');
         price.className = '';
-        price.innerHTML = new Intl.NumberFormat('fi-FI').format(house.price);
+        price.innerHTML = new Intl.NumberFormat('fi-FI').format(house.price) + " euroa";
 
         housecontainer.appendChild(image);
         housecontainer.appendChild(header);
