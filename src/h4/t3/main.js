@@ -147,5 +147,4 @@ function myScript() {
             }
         }
         event.target.className = "active";
-    console.log(e.target);
 }
