@@ -1,0 +1,31 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.searchWindow{
+    background-color: rgb(253,238,225);
+}
+
+.active {
+    background-color: rgb(181, 119, 11);
+    color: white;
+}
+
+li {
+    background-color: rgb(255, 194, 88);
+    color: black;
+
+}
+
+li:last-child {
+    border-radius: 0px 0px 5px 5px;
+}
+
+li:first-child {
+    border-radius: 3px 3px 0px 0px;
+}
+
+ul {
+    padding-left: 5px;
+    padding-right: 5px;
+}
