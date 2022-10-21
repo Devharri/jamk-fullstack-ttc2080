@@ -17,6 +17,11 @@ li {
 
 }
 
+/* li:hover {
+    background-color: rgb(181, 119, 11);
+    color: white;
+} */
+
 li:last-child {
     border-radius: 0px 0px 5px 5px;
 }

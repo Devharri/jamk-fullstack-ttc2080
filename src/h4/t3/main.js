@@ -124,3 +124,28 @@ async function renderForm(event) {
 document.getElementById("input2").addEventListener("keyup", (event) => {
     renderForm(event.key);
 }, true);
+
+document.getElementById("searchOutput").addEventListener('click', function(e) {
+    e = e ;
+    var target = e.target 
+
+    input2.value = target.textContent;
+    let ulElement = document.getElementById("searchOutput");
+    while (ulElement.firstChild) {
+        ulElement.removeChild(ulElement.lastChild);
+    }
+}, false);
+
+
+function myScript() {
+    const liElements = document.getElementById("searchOutput").children;
+
+    if (liElements.length > 1) {
+        for (let i = 0; i < liElements.length; i++) {
+
+                liElements[i].className = "";
+            }
+        }
+        event.target.className = "active";
+    console.log(e.target);
+}
