@@ -1,0 +1,12 @@
+{
+  "name": "t4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "04-exercise.js",
+  "scripts": {
+    "start": "node 04-exercise.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harri Honkanen",
+  "license": "MIT"
+}

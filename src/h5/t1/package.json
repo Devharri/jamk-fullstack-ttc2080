@@ -1,0 +1,12 @@
+{
+  "name": "t1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-exercise.js",
+  "scripts": {
+    "start": "node 01-exercise.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harri Honkanen",
+  "license": "MIT"
+}
