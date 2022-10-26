@@ -1,0 +1,14 @@
+{
+  "name": "t5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "05-exercise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "harri honkanen",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
