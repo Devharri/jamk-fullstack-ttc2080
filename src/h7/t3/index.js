@@ -10,7 +10,7 @@ const port = 3000
 const mongoose = require('mongoose')
 
 // connection string - EDIT YOUR OWN HERE
-const mongoDB = 'mongodb+srv://JAMK-USER:JAMK-USER@cluster0.twe4v.mongodb.net/?retryWrites=true&w=majority'
+const mongoDB = 'mongodb+srv://USER:PASSWORD@cluster0.twe4v.mongodb.net/?retryWrites=true&w=majority'
 
 // connect mongodb
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
