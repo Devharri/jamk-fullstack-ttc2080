@@ -1,0 +1,99 @@
+db.createCollection("cities")
+db.cities.insertMany( [
+      { _id: 1, cityname: "Turku", population: 190000 },
+      { _id: 2, cityname: "Tampere", population: 230000 },
+      { _id: 3, cityname: "Lahti", population: 120000}
+   ] )
+
+db.createCollection("courses")
+db.courses.insertMany( [
+      { _id: 1, coursename: "Ohjelmointi", credits: 5 },
+      { _id: 2, coursename: "Tietokannat", credits: 4 },
+      { _id: 3, coursename: "Ruotsi", credits: 3}
+   ] )
+
+db.createCollection("students")
+db.students.insertMany( [
+      { _id: 2001, lastname: "Guru", firstname: "Ken", birthdate: new Date("2001-11-11"), eyecolor: "Ruskea", incomes: NumberDecimal( "12010.12" ), taxrate: NumberDecimal( "5.10" ), hometown: 1 },
+      { _id: 2002, lastname: "Saurus", firstname: "Tino", birthdate: new Date("2002-11-11"), eyecolor: "Ruskea", incomes: NumberDecimal( "14010.22" ), taxrate: NumberDecimal( "6.20" ), hometown: 1 },
+      { _id: 2003, lastname: "Tiainen", firstname: "Sini", birthdate: new Date("2003-11-11"), eyecolor: "Sininen", incomes: NumberDecimal( "16010.32" ), taxrate: NumberDecimal( "7.30" ), hometown: 1 },
+      { _id: 2004, lastname: "Vainio", firstname: "Vilja", birthdate: new Date("2004-11-11"), eyecolor: "Sininen", incomes: NumberDecimal( "0.00" ), taxrate: NumberDecimal( "0.00" ), hometown: 3 },
+      { _id: 2005, lastname: "Vainio", firstname: "Elo", birthdate: new Date("2005-11-11"), eyecolor: "Sininen", incomes: NumberDecimal( "0.00" ), taxrate: NumberDecimal( "0.00" ), hometown: 3 },
+      { _id: 2006, lastname: "Rahainen", firstname: "Muu", birthdate: new Date("2006-11-11"), eyecolor: "Harmaa", incomes: NumberDecimal( "13010.12" ), taxrate: NumberDecimal( "5.80" ), hometown: 2 },
+      { _id: 2007, lastname: "Alainen", firstname: "Kim", birthdate: new Date("2007-11-11"), eyecolor: null, incomes: NumberDecimal( "18010.12" ), taxrate: NumberDecimal( "8.80" ), hometown: 2 },
+      { _id: 2008, lastname: "Ana", firstname: "Ruut", birthdate: new Date("2008-11-11"), eyecolor: null, incomes: NumberDecimal( "20010.12" ), taxrate: NumberDecimal( "9.90" ), hometown: null }
+   ] )
+
+db.createCollection("studentgrades")
+db.studentgrades.insertMany( [
+      { studentID: 2001, courseD: 1, date_created: new Date("2018-11-11"), grade: 5 },
+      { studentID: 2001, courseD: 2, date_created: new Date("2019-11-11"), grade: 5 },
+      { studentID: 2001, courseD: 3, date_created: new Date("2020-11-11"), grade: 5 },
+      { studentID: 2002, courseD: 1, date_created: new Date("2018-11-11"), grade: 4 },
+      { studentID: 2002, courseD: 2, date_created: new Date("2019-11-11"), grade: 4 },
+      { studentID: 2002, courseD: 3, date_created: new Date("2020-11-11"), grade: 4 },
+      { studentID: 2003, courseD: 1, date_created: new Date("2018-11-11"), grade: 3 },
+      { studentID: 2003, courseD: 2, date_created: new Date("2019-11-11"), grade: 4 },
+      { studentID: 2003, courseD: 3, date_created: new Date("2020-11-11"), grade: 4 },
+      { studentID: 2004, courseD: 3, date_created: new Date("2020-11-11"), grade: 1 },
+      { studentID: 2005, courseD: 3, date_created: new Date("2020-11-11"), grade: 1 },
+      { studentID: 2006, courseD: 1, date_created: new Date("2018-11-11"), grade: 2 },
+      { studentID: 2006, courseD: 2, date_created: new Date("2019-11-11"), grade: 2 },
+      { studentID: 2006, courseD: 3, date_created: new Date("2020-11-11"), grade: 3 },
+      { studentID: 2007, courseD: 1, date_created: new Date("2018-11-11"), grade: 3 },
+      { studentID: 2007, courseD: 2, date_created: new Date("2019-11-11"), grade: 4 },
+      { studentID: 2008, courseD: 1, date_created: new Date("2018-11-11"), grade: 4 },
+      { studentID: 2008, courseD: 2, date_created: new Date("2019-11-11"), grade: 5 }
+   ] )
+
+db.cities.find( {} )
+
+{ _id: 1, cityname: 'Turku', population: 190000 }
+{ _id: 2, cityname: 'Tampere', population: 230000 }
+{ _id: 3, cityname: 'Lahti', population: 120000 }
+
+
+db.students.find(
+    { incomes: { $gt: 14000 } },
+    { lastname: 1, incomes: 1, _id: 0}
+).sort( { incomes: -1 } )
+
+{ lastname: 'Ana', incomes: Decimal128("20010.12") }
+{ lastname: 'Alainen', incomes: Decimal128("18010.12") }
+{ lastname: 'Tiainen', incomes: Decimal128("16010.32") }
+{ lastname: 'Saurus', incomes: Decimal128("14010.22") }
+
+
+db.students.find(
+    { $or: [ { hometown: 3 } , { eyecolor: "Sininen" } ] },
+    { lastname: 1, firstname: 1, eyecolor: 1, incomes: 1, _id: 0}
+).sort( { lastname: 1, firstname: 1 } )
+
+{ lastname: 'Tiainen',
+  firstname: 'Sini',
+  eyecolor: 'Sininen',
+  incomes: Decimal128("16010.32") }
+{ lastname: 'Vainio',
+  firstname: 'Elo',
+  eyecolor: 'Sininen',
+  incomes: Decimal128("0.00") }
+{ lastname: 'Vainio',
+  firstname: 'Vilja',
+  eyecolor: 'Sininen',
+  incomes: Decimal128("0.00") }
+
+db.students.aggregate( [
+   {
+     $group: {
+        _id: "$eyecolor",
+        total: { $avg: "$incomes" }
+     }
+   },
+   { $sort: { total: -1 } }
+] )
+
+{ _id: null, total: Decimal128("19010.12") }
+{ _id: 'Ruskea', total: Decimal128("13010.17") }
+{ _id: 'Harmaa', total: Decimal128("13010.12") }
+{ _id: 'Sininen',
+  total: Decimal128("5336.773333333333333333333333333333") }
